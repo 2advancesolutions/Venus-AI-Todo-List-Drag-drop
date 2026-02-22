@@ -1,0 +1,257 @@
+.app {
+  width: 100%;
+}
+
+.todo-container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.task-input {
+  flex: 1;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.task-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.task-input::placeholder {
+  color: #999;
+}
+
+.add-button {
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.add-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.add-button:active {
+  transform: translateY(0);
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  min-height: 120px;
+  border: 2px dashed transparent;
+  transition: all 0.3s ease;
+}
+
+.tasks-list:hover {
+  border-color: #667eea;
+  background: #f0f2ff;
+}
+
+.completed-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: #e8f5e9;
+  border-radius: 15px;
+  min-height: 120px;
+  border: 2px dashed transparent;
+  transition: all 0.3s ease;
+}
+
+.completed-section:hover {
+  border-color: #4caf50;
+  background: #d7f5d9;
+}
+
+.completed-tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  padding: 18px 20px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  animation: taskAppear 0.3s ease-out;
+  cursor: grab;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-item:active {
+  cursor: grabbing;
+  opacity: 0.6;
+}
+
+@keyframes taskAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.task-item:hover {
+  border-color: #667eea;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.completed-task {
+  background: #f1f8f4;
+  border-color: #4caf50;
+}
+
+.completed-task:hover {
+  border-color: #45a049;
+  background: #e8f5e9;
+}
+
+.task-text {
+  font-size: 16px;
+  color: #333;
+  flex: 1;
+}
+
+.completed-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.delete-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: #ff4757;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+  flex-shrink: 0;
+}
+
+.delete-button:hover {
+  background: #ff3838;
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.5);
+}
+
+.delete-button:active {
+  transform: scale(0.95) rotate(90deg);
+}
+
+.empty-state {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  padding: 20px;
+  font-style: italic;
+}
+
+.empty-state-done {
+  text-align: center;
+  color: #81c784;
+  font-size: 16px;
+  padding: 20px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .todo-container {
+    padding: 25px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+}
