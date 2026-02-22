@@ -80,7 +80,52 @@
   transform: translateY(0);
 }
 
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  min-height: 120px;
+  border: 2px dashed transparent;
+  transition: all 0.3s ease;
+}
+
+.tasks-list:hover {
+  border-color: #667eea;
+  background: #f0f2ff;
+}
+
+.completed-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: #e8f5e9;
+  border-radius: 15px;
+  min-height: 120px;
+  border: 2px dashed transparent;
+  transition: all 0.3s ease;
+}
+
+.completed-section:hover {
+  border-color: #4caf50;
+  background: #d7f5d9;
+}
+
+.completed-tasks-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -88,7 +133,7 @@
 
 .task-item {
   padding: 18px 20px;
-  background: #f8f9fa;
+  background: white;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -97,6 +142,13 @@
   transition: all 0.3s ease;
   border: 2px solid transparent;
   animation: taskAppear 0.3s ease-out;
+  cursor: grab;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-item:active {
+  cursor: grabbing;
+  opacity: 0.6;
 }
 
 @keyframes taskAppear {
@@ -111,15 +163,30 @@
 }
 
 .task-item:hover {
-  background: #e9ecef;
   border-color: #667eea;
   transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.completed-task {
+  background: #f1f8f4;
+  border-color: #4caf50;
+}
+
+.completed-task:hover {
+  border-color: #45a049;
+  background: #e8f5e9;
 }
 
 .task-text {
   font-size: 16px;
   color: #333;
   flex: 1;
+}
+
+.completed-text {
+  text-decoration: line-through;
+  color: #999;
 }
 
 .delete-button {
@@ -153,9 +220,18 @@
 .empty-state {
   text-align: center;
   color: #999;
-  font-size: 18px;
-  padding: 40px 20px;
+  font-size: 16px;
+  padding: 20px;
   font-style: italic;
+}
+
+.empty-state-done {
+  text-align: center;
+  color: #81c784;
+  font-size: 16px;
+  padding: 20px;
+  font-style: italic;
+  font-weight: 500;
 }
 
 @media (max-width: 600px) {
@@ -173,5 +249,9 @@
 
   .add-button {
     width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
   }
 }
