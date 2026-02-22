@@ -93,6 +93,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 15px;
   transition: all 0.3s ease;
   border: 2px solid transparent;
   animation: taskAppear 0.3s ease-out;
@@ -119,6 +120,34 @@
   font-size: 16px;
   color: #333;
   flex: 1;
+}
+
+.delete-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: #ff4757;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+  flex-shrink: 0;
+}
+
+.delete-button:hover {
+  background: #ff3838;
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.5);
+}
+
+.delete-button:active {
+  transform: scale(0.95) rotate(90deg);
 }
 
 .empty-state {

@@ -17,6 +17,10 @@ function App() {
     }
   };
 
+  const handleDeleteTask = (taskId) => {
+    setTasks(tasks.filter(task => task.id !== taskId));
+  };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleAddTask();
@@ -49,6 +53,13 @@ function App() {
             tasks.map((task) => (
               <div key={task.id} className="task-item">
                 <span className="task-text">{task.text}</span>
+                <button 
+                  className="delete-button" 
+                  onClick={() => handleDeleteTask(task.id)}
+                  aria-label="Delete task"
+                >
+                  ✕
+                </button>
               </div>
             ))
           )}
